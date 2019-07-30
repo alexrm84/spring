@@ -8,17 +8,9 @@ import org.springframework.stereotype.Component;
 public class TheBowl implements Bowl {
 
     @Getter
-    @Autowired
     private Food bowlContents;
 
-    public TheBowl(){
-        this.bowlContents = null;
-    }
-
-    public TheBowl(Food bowlContents) {
-        this.bowlContents = bowlContents;
-    }
-
+    @Autowired
     public void setBowlContents(Food bowlContents) {
         this.bowlContents = bowlContents;
         bowlContents.fillABowl();
