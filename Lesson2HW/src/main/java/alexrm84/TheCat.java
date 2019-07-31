@@ -22,4 +22,8 @@ public class TheCat implements Cat {
         bowl.bowlEmptying();
         System.out.println("Блохастый " + this.name + " наелся и улегся спать на клавиатуру");
     }
+
+    public void meow() {
+        System.out.println("Покорми кота, раб!");
+    }
 }
