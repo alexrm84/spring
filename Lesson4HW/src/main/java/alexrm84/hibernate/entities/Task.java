@@ -1,7 +1,5 @@
 package alexrm84.hibernate.entities;
 
-import alexrm84.hibernate.entities.Project;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +8,7 @@ public class Task {
     @Id
     private String id;
 
-    private  String name;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -18,6 +16,15 @@ public class Task {
 
     @OneToOne(mappedBy = "task")
     private User user;
+
+    public Task() {
+    }
+
+    public Task(String id, String name, Project project) {
+        this.id = id;
+        this.name = name;
+        this.project = project;
+    }
 
     public String getId() {
         return id;
@@ -41,5 +48,13 @@ public class Task {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
