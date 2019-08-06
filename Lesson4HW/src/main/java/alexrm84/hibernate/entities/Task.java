@@ -1,8 +1,8 @@
-package alexrm84.hibernate.model;
+package alexrm84.hibernate.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import alexrm84.hibernate.entities.Project;
+
+import javax.persistence.*;
 
 @Entity
 public class Task {
@@ -13,7 +13,11 @@ public class Task {
     private  String name;
 
     @ManyToOne
+    @JoinColumn(name = "project_id")
     private Project project;
+
+    @OneToOne(mappedBy = "task")
+    private User user;
 
     public String getId() {
         return id;

@@ -1,13 +1,7 @@
-package alexrm84.hibernate.model;
+package alexrm84.hibernate.entities;
 
-import alexrm84.hibernate.enumerated.Status;
-import lombok.Data;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-
-@Data
 @Entity
 public class User {
 
@@ -16,8 +10,9 @@ public class User {
     private String login;
     private String password;
 
-    @Enumerated
-    private Status status;
+    @OneToOne
+    @JoinColumn(name = "task_id")
+    private Task task;
 
     public String getId() {
         return id;

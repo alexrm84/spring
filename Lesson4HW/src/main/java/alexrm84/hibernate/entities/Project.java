@@ -1,8 +1,10 @@
-package alexrm84.hibernate.model;
+package alexrm84.hibernate.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -10,8 +12,10 @@ public class Project {
     @Id
     private String id;
 
-    @Column
     private String name;
+
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
 
     public String getId() {
         return id;
@@ -27,5 +31,13 @@ public class Project {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
